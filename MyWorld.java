@@ -5,20 +5,43 @@ import greenfoot.*;
  * @author Leo
  * @version April 2025
  */
-public class MyWorld extends World {
+public class MyWorld extends World 
+{
+    public int score = 0;
+    Label scoreLabel;
+    
+    /**
+     * Constructor for odjects of class MyWorld.
+     * 
+     */
     public MyWorld() 
     {
         super(600, 400, 1);
         
+        // Create the eleplant object 
         Elephant elephant = new Elephant();
         addObject(elephant, 300, 200);
+        
+        // Create a label
+        scoreLabel = new Label(0, 80);
+        addObject(scoreLabel, 50,50);
         
         createApple();
     }
     
-/**
- * Create a new apple at random location at top of screen 
- */
+    /**
+     * Increase score
+     */
+    public void increaseScore()
+    {
+        score++;
+        scoreLabel.setValue(score);
+    }
+
+    
+    /**
+     * Create a new apple at random location at top of screen 
+     */
     public void createApple()
     {
         Apple apple = new Apple();
